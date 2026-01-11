@@ -49,7 +49,6 @@ def find_duplicates(file_path):
                 if name_score >= 80:
                     pid = f"DUP_{pair_id}"
                     for idx in (i, j):
-                        pair_id += 1
                         row = df.loc[idx, cols].copy()
                         row["Pair_ID"] = pid
                         row["Excel_Row"] = idx + 2
@@ -57,6 +56,7 @@ def find_duplicates(file_path):
                         row["Name_Score"] = name_score
                         output_rows.append(row)
                         used_rows.add(idx)
+                    pair_id += 1
                     break
 
     final_df = pd.DataFrame(output_rows)
@@ -70,3 +70,4 @@ if __name__ == "__main__":
     file_path = sys.argv[1]
     df = find_duplicates(file_path)
     print(df)
+
