@@ -1,0 +1,7 @@
+streamlit
+pandas
+tempfile
+duplicate_finder
+rapidfuzz
+sys
+openpyxl
